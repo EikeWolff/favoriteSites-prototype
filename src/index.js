@@ -1,35 +1,14 @@
-import login from './utils/login';
 import './app.scss';
-
-const handleUserIsLoggedIn = ($introElement, $loginBtn) => {
-    $introElement.innerText = `Hallo ${chayns.env.user.firstName}`;
-    $loginBtn.innerText = 'Abmelden';
-    $loginBtn.addEventListener('click', async () => {
-        await chayns.logout();
-        window.location.reload();
-    });
-};
-
-const handleUserIsLoggedOut = ($introElement, $loginBtn) => {
-    $introElement.innerText = 'Bitte melde dich an';
-    $loginBtn.innerText = 'Anmelden';
-    $loginBtn.addEventListener('click', () => {
-        login(() => handleUserIsLoggedIn($introElement, $loginBtn));
-    });
-};
+import TappProject from './tapp';
 
 const init = async () => {
+    'use strict';
+
     try {
         await chayns.ready;
+        chayns.ui.initAll();
 
-        const $introElement = document.querySelector('#intro');
-        const $loginBtn = document.querySelector('#loginBtn');
-
-        if (chayns.env.user.isAuthenticated) {
-            handleUserIsLoggedIn($introElement, $loginBtn);
-        } else {
-            handleUserIsLoggedOut($introElement, $loginBtn);
-        }
+        TappProject();
     } catch (err) {
         console.error('No chayns environment found', err);
     }
