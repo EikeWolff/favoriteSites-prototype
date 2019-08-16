@@ -1,6 +1,6 @@
 import path from 'path';
 
-const SHORTHAND = 'LJ';
+const SHORTHAND = 'HW';
 const PROJECT_NAME = 'MyFavoriteSites_Prototyp';
 
 export default (dev = false) => ({
