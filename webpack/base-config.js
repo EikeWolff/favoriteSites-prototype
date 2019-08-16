@@ -1,7 +1,7 @@
 import path from 'path';
 
-const SHORTHAND = 'YOUR_SHORTHAND';
-const PROJECT_NAME = 'YOUR_PROJECT_NAME';
+const SHORTHAND = 'HW';
+const PROJECT_NAME = 'MyFavoriteSites_Prototyp';
 
 export default (dev = false) => ({
     node: {
@@ -23,11 +23,11 @@ export default (dev = false) => ({
         rules: [{
             test: /\.(css|scss)$/,
             use: [{
-                loader: 'style-loader',
-                options: {
-                    sourceMap: true
-                }
-            },
+                    loader: 'style-loader',
+                    options: {
+                        sourceMap: true
+                    }
+                },
                 {
                     loader: 'css-loader',
                     options: {
